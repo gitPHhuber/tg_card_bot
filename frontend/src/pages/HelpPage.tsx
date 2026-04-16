@@ -87,7 +87,7 @@ export default function HelpPage() {
 
       <div className="px-5 mt-6">
         <a
-          href="https://t.me/support_bot"
+          href="https://t.me/Atlas_Pay_Bot"
           target="_blank"
           rel="noopener noreferrer"
           className="block w-full bg-accent/[0.06] border border-accent/20 rounded-full px-4 py-4 text-center text-sm font-semibold text-accent hover:bg-accent/[0.12] transition-all duration-300"

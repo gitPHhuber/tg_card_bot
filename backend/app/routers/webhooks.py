@@ -42,10 +42,19 @@ async def _notify_user(user_id: int, order_id: int):
                     "chat_id": user_id,
                     "text": (
                         "✅ Ваша карта готова!\n\n"
-                        f"Откройте Mini App, чтобы посмотреть реквизиты.\n"
                         f"Заказ #{order_id}"
                     ),
                     "parse_mode": "HTML",
+                    "reply_markup": {
+                        "inline_keyboard": [[
+                            {
+                                "text": "💳 Открыть карту",
+                                "web_app": {
+                                    "url": f"{settings.webapp_url}/card/{order_id}"
+                                },
+                            }
+                        ]]
+                    },
                 },
             )
     except Exception:

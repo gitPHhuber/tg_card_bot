@@ -8,7 +8,7 @@
 |---|---|---|
 | **Atlas VPN — лендинг** | [`gitPHhuber/Atlats_Sait`](https://github.com/gitPHhuber/Atlats_Sait) | Публичный сайт `atlasvpn.ru`, весь трафик ведёт на Telegram-бот |
 | **Atlas VPN — бот** | [`gitPHhuber/tg_bot_oplata`](https://github.com/gitPHhuber/tg_bot_oplata) | Продажа и выдача VPN-подписок (VLESS+Reality через 3x-ui) |
-| **Atlas Cards — бот + Mini App** | [`gitPHhuber/tg_card_bot`](https://github.com/gitPHhuber/tg_card_bot) | Виртуальные Visa-карты для оплаты ChatGPT, Claude, Spotify и т.п. |
+| **Atlas Cards — бот + Mini App** [`@Atlas_Pay_Bot`](https://t.me/Atlas_Pay_Bot) | [`gitPHhuber/tg_card_bot`](https://github.com/gitPHhuber/tg_card_bot) | Виртуальные Visa-карты для оплаты ChatGPT, Claude, Spotify и т.п. |
 
 ## Как это работает вместе
 
@@ -26,7 +26,7 @@
          └──────────────────────────────────────────┘
 
          ┌──────────────────────────────────────────┐
-         │  Telegram-бот Atlas Cards                │
+         │  Telegram @Atlas_Pay_Bot                 │
          │  (aiogram 3) ─── Mini App (React/Vite)   │
          │           │         │                    │
          │           ▼         ▼                    │

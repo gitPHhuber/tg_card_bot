@@ -92,6 +92,36 @@ async def recent_orders(
     return {"orders": items}
 
 
+@router.get("/users/{user_id}/orders")
+async def user_orders(
+    user_id: int,
+    delivered_only: bool = False,
+    limit: int = Query(10, le=50),
+    db: AsyncSession = Depends(get_db),
+):
+    query = select(Order).where(Order.user_id == user_id)
+    if delivered_only:
+        query = query.where(Order.status == OrderStatus.DELIVERED)
+    query = query.order_by(Order.created_at.desc()).limit(limit)
+
+    result = await db.execute(query)
+    orders = result.scalars().all()
+
+    items = []
+    for o in orders:
+        await db.refresh(o, ["product"])
+        items.append({
+            "id": o.id,
+            "product_name": o.product.name if o.product else "",
+            "face_value": float(o.product.face_value_usd) if o.product else 0,
+            "amount_rub": float(o.amount_rub),
+            "status": o.status.value,
+            "created_at": o.created_at.isoformat(),
+        })
+
+    return {"orders": items}
+
+
 @router.get("/pricing")
 async def pricing_info(db: AsyncSession = Depends(get_db)):
     rate = await get_effective_rate()
